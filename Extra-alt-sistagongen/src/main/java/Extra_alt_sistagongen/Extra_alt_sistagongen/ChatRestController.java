@@ -9,16 +9,19 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/chat")
 public class ChatRestController {
 
-    private List<Message> messages = new ArrayList<>();
+    private final MessageRepository messageRepository;
+
+    public ChatRestController(MessageRepository messageRepository) {
+        this.messageRepository = messageRepository;
+    }
 
     @GetMapping("/messages")
     public List<Message> getMessages() {
-        return messages;
+        return messageRepository.findAll();
     }
 
     @PostMapping("/message")
     public Message postMessage(@RequestBody Message message) {
-        messages.add(message);
-        return message;
+        return messageRepository.save(message);
     }
 }
