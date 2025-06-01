@@ -13,3 +13,4 @@ public class ChatController {
         return message;
     }
 }
+// hopas att inget läckte
