@@ -11,7 +11,7 @@ public class AiChatResponse {
     public AiChatResponse() {
     };
 
-    public List<Choice> getcChoices() {
+    public List<Choice> getChoices() {
         return choices;
     }
 

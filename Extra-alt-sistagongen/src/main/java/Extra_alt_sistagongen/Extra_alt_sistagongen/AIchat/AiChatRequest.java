@@ -7,16 +7,19 @@ public class AiChatRequest {
 
     private String model;
 
-    private List<AiMessages> message;
+    private List<AiMessages> messages; // note: changed to plural "messages"
 
     private int n;
 
-    public AiChatRequest(String model, String promt, int n) {
+    public AiChatRequest(String model, String systemPrompt, String userPrompt, int n) {
         this.model = model;
-        this.message = new ArrayList<>();
-        this.message.add(new AiMessages("user", promt));
         this.n = n;
+        this.messages = new ArrayList<>();
+        this.messages.add(new AiMessages("system", systemPrompt)); // system message
+        this.messages.add(new AiMessages("user", userPrompt)); // user message
     }
+
+    // getters and setters
 
     public String getModel() {
         return model;
@@ -26,12 +29,12 @@ public class AiChatRequest {
         this.model = model;
     }
 
-    public List<AiMessages> getMessage() {
-        return message;
+    public List<AiMessages> getMessages() {
+        return messages;
     }
 
-    public void setMessage(List<AiMessages> message) {
-        this.message = message;
+    public void setMessages(List<AiMessages> messages) {
+        this.messages = messages;
     }
 
     public int getN() {
@@ -41,5 +44,4 @@ public class AiChatRequest {
     public void setN(int n) {
         this.n = n;
     }
-
 }
