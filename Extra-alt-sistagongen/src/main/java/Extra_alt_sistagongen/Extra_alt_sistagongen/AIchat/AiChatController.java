@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = { "http://localhost:3000", "https://coral-app-sym8r.ondigitalocean.app" })
+@CrossOrigin(origins = { "http://localhost:3000", "https://coral-app-sym8r.ondigitalocean.app",
+        "http://localhost:5173" })
 public class AiChatController {
 
     @Autowired
